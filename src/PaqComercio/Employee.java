@@ -1,6 +1,6 @@
 package PaqComercio;
 
-public class Employee extends Business{
+public class Employee implements Cloneable{
     String IDCard;
     String name;
     String address;
@@ -86,5 +86,24 @@ public class Employee extends Business{
 
     public void setPosition(String position) {
         this.position = position;
+    }
+
+    public Object clone() throws CloneNotSupportedException{
+        Employee obj = (Employee) super.clone();
+
+        obj.name = this.name;
+        obj.address = this.address;
+        obj.IDCard = this.IDCard;
+        obj.phoneNumber = this.phoneNumber;
+        obj.email = this.email;
+        obj.startDate = this.startDate;
+        obj.salary = this.salary;
+        obj.position = this.position;
+
+        return obj;
+    }
+
+    public String toString(){
+        return "IDCard: " + IDCard + "\nName: " + name + "\nAddress: " + address + "\nPhone Number: " + phoneNumber + "\nEmail: " + email + "\nStart Date: " + startDate + "\nSalary: " + salary + "\nPosition: " + position;
     }
 }
